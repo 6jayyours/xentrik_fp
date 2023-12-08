@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="user_head">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Eccentric</title>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.css}">
+    <link rel="stylesheet" th:href="@{/css/templatemo-hexashop.css}">
+    <link rel="stylesheet" th:href="@{/css/owl-carousel.css}">
+    <link rel="stylesheet" th:href="@{/css/lightbox.css}">
+    <!--
+
+    TemplateMo 571 Hexashop
+
+    https://templatemo.com/tm-571-hexashop
+
+    -->
+</head>
+
+<body>
+
+<header class="header-area header-sticky" th:fragment="user_nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="#" class="logo">
+                        <img th:src="@{/img/logo.png}">
+                    </a>
+
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li>
+                            <form action="/user/search" method="get">
+                                <div class="input-group input-group-merge">
+                                    <input type="text" class="form-control" name="query" placeholder="Search..." aria-label="Search..." aria-describedby="basic-addon-search31" fdprocessedid="p3ttjo">
+                                </div>
+                            </form>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:;">Mens</a>
+                            <ul>
+                                <li><a href="/user/byCategory?category=tshirt&gender=men">T-shirt</a></li>
+                                <li><a href="/user/byCategory?category=shirt&gender=men">Shirt</a></li>
+                                <li><a href="/user/byCategory?category=jacket&gender=men">Jacket</a></li>
+                                <li><a href="/user/byCategory?category=hoodie&gender=men">Hoodie</a></li>
+                                <li><a href="/user/byCategory?category=jeans&gender=men">Jeans</a></li>
+                                <li><a href="/user/byCategory?category=shorts&gender=men">Shorts</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:;">Womens</a>
+                            <ul>
+                                <li><a href="/user/byCategory?category=tshirt&gender=women">Tshirt</a></li>
+                                <li><a href="/user/byCategory?category=shirt&gender=women">Shirt</a></li>
+                                <li><a href="/user/byCategory?category=jacket&gender=women">Jacket</a></li>
+                                <li><a href="/user/byCategory?category=hoodie&gender=women">Hoodie</a></li>
+                                <li><a href="/user/byCategory?category=jeans&gender=women">Jeans</a></li>
+                                <li><a href="/user/byCategory?category=shorts&gender=women">Shorts</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll-to-section"><a th:href="@{/user/showwishlist}">WishList</a></li>
+                        <li class="scroll-to-section"><a th:href="@{/user/cart}">Cart</a></li>
+                        <li class="scroll-to-section"><a id="openWalletModal" >Wallet</a></li>
+                        <li class="submenu">
+                            <a th:href="@{/login}">Profile</a>
+<!--                        <li><a th:if="${#authorization.expression('isAuthenticated()')}" th:href="@{/profile}" th:text="${#authentication.name}">Username</a></li>-->
+<!--                        <li><a th:unless="${#authorization.expression('isAuthenticated()')}" th:href="@{/login}" th:text="Login/Register">Login/Register</a></li>-->
+                            <ul>
+                                <li><a>Login/Register</a></li>
+                                <li><a th:href="@{/user/profile}">Profile</a></li>
+                                <li><a th:href="@{/logout}">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<footer th:fragment="user_foot">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="first-item">
+                    <div class="logo">
+                        <img th:src="@{/img/logo.png}" alt="hexashop ecommerce templatemo">
+                    </div>
+                    <ul>
+                        <li><a href="#">HSR Layout, Sunny Isles Beach, FL 33160, United States</a></li>
+                        <li><a href="#">eccentricclothing@company.com</a></li>
+                        <li><a href="#">010-020-0340</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h4>Shopping &amp; Categories</h4>
+                <ul>
+                    <li><a href="#">Men’s Shopping</a></li>
+                    <li><a href="#">Women’s Shopping</a></li>
+                    <li><a href="#">Kid's Shopping</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="#">Homepage</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h4>Help &amp; Information</h4>
+                <ul>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Tracking ID</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-12">
+                <div class="under-footer">
+                    <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
+
+                        <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
+
+                        <br>Distributed By: <a href="https://themewagon.com" target="_blank" title="free & premium responsive templates">ThemeWagon</a></p>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Wallet Modal -->
+<div class="modal fade" id="walletModal" tabindex="-1" role="dialog" aria-labelledby="walletModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="walletModalLabel">Wallet Amount</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Display the wallet amount here -->
+                <p>Your wallet amount is: $100.00</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript to open the modal -->
+<script>
+    // Wait for the document to be ready
+    $(document).ready(function() {
+        // Add a click event listener to the "Wallet" link
+        $("#openWalletModal").click(function() {
+            // Open the wallet modal
+            $("#walletModal").modal('show');
+        });
+    });
+</script>
+
+</body>
+</html>

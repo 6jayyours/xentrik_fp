@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head   >
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Profile</title>
+
+
+    <meta name="description" content="Most Powerful &amp; Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!" />
+    <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://themeselection.com/item/sneat-bootstrap-html-admin-template/">
+
+
+    <!-- ? PROD Only: Google Tag Manager (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5DDHKGP');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" th:href="@{/img/favicon/favicon.ico}" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" th:href="@{/vendor/fonts/boxicons.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/fonts/fontawesome.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/fonts/flag-icons.css}"  />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" th:href="@{/vendor/css/rtl/core.css}"  class="template-customizer-core-css" />
+    <link rel="stylesheet" th:href="@{/vendor/css/rtl/theme-default.css}"  class="template-customizer-theme-css" />
+    <link rel="stylesheet" th:href="@{/css/demo.css}"  />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" th:href="@{/vendor/libs/perfect-scrollbar/perfect-scrollbar.css}"  />
+    <link rel="stylesheet" th:href="@{/vendor/libs/typeahead-js/typeahead.css}"  />
+    <link rel="stylesheet" th:href="@{/vendor/libs/apex-charts/apex-charts.css}"  />
+    <link rel="stylesheet" th:href="@{/vendor/libs/quill/typography.css}" >
+    <link rel="stylesheet" th:href="@{/vendor/libs/quill/katex.css}" >
+    <link rel="stylesheet" th:href="@{/vendor/libs/quill/editor.css}" >
+    <link rel="stylesheet" th:href="@{/vendor/libs/select2/select2.css}" >
+    <link rel="stylesheet" th:href="@{/vendor/libs/dropzone/dropzone.css}" >
+    <link rel="stylesheet" th:href="@{/vendor/libs/flatpickr/flatpickr.css}" >
+    <link rel="stylesheet" th:href="@{/vendor/libs/tagify/tagify.css}"  />
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" th:href="@{/vendor/css/pages/card-analytics.css}"  />
+
+    <!-- Helpers -->
+    <script th:src="@{/vendor/js/helpers.js}"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script th:src="@{/vendor/js/template-customizer.js}"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <!--    <script th:src="@{/js/config.js}"></script>-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.css}">
+    <link rel="stylesheet" th:href="@{/css/templatemo-hexashop.css}">
+    <link rel="stylesheet" th:href="@{/css/owl-carousel.css}">
+    <link rel="stylesheet" th:href="@{/css/lightbox.css}">
+
+</head>
+
+
+<body>
+
+<!-- ***** Preloader Start ***** -->
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+
+<!-- ***** Header Area Start ***** -->
+<div th:replace="fragments :: user_nav" />
+<!-- ***** Header Area End ***** -->
+
+
+<!-- ***** edit profile ***** -->
+
+<div class="container-xxl flex-grow-1 container-p-y">
+
+
+    <h4 class="py-3 mb-4">
+        <span class="text-muted fw-light">Account Settings /</span> Account
+    </h4>
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="row g-0" th:each="cartitem : ${cart}">
+                <div class="col-md-4">
+                    <img class="card-img card-img-left" alt="Card image" th:src="@{${'/productImages/' + cartitem.images[0].imageName}}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title mb-1" th:text="${cartitem.brand}">Product Name</h5>
+                        <h6 class="card-title mb-1 text-nowrap" th:text="${cartitem.price}">Price</h6>
+                        <small class="d-block mb-3 text-nowrap" th:text="${cartitem.description}">Description</small>
+
+                        <div class="input-group">
+                            <input style="width:25%" type="number" min="1" class="form-control smaller-input" th:value="${productCounts.get(cartitem.id)}" th:id="'quantity_' + ${cartitem.id}" placeholder="" />
+
+                        </div>
+                        <form  method="post">
+                            <input type="hidden" name="productId"   />
+                            <button type="submit" class="btn btn-sm btn-primary">Buy Now</button>
+                        </form>
+                        <form th:action="@{/user/removefromCart}" method="post">
+                            <input type="hidden" name="productId" th:value="${cartitem.id}" />
+                            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5" />
+        </div>
+
+        <div class="col-md-6">
+            <div class="border rounded p-4 mb-3 pb-3">
+
+                <!-- Offer -->
+                <h6>Coupon</h6>
+                <div class="row g-3 mb-3">
+                    <div class="col-8 col-xxl-8 col-xl-12">
+                        <input type="text" class="form-control" id="promoCodeInput" placeholder="Enter Code" aria-label="Enter Promo Code">
+                    </div>
+                    <div class="col-4 col-xxl-4 col-xl-12">
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-label-primary" onclick="applyPromoCode()">Apply</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="couponModal" tabindex="-1" aria-labelledby="couponModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="couponModalLabel">Available Coupons</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Coupons list will be displayed here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <!-- Price Details -->
+                <h6>Price Details</h6>
+                <dl class="row mb-0">
+                    <dt class="col-6 fw-normal">Bag Total</dt>
+                    <dd class="col-6 text-end" th:text="'₹' + ${total}">$1198.00</dd>
+
+                    <dt class="col-sm-6 fw-normal">Coupon Discount</dt>
+                    <dd class="col-sm-6 text-end" id="appliedCouponDiscount">Apply Coupon</dd>
+
+
+
+                    <dt class="col-6 fw-normal">Delivery Charges</dt>
+                    <dd class="col-6 text-end"><s class="text-muted">$5.00</s> <span class="badge bg-label-success ms-1">Free</span></dd>
+                </dl>
+
+                <hr class="mx-n4">
+                <dl class="row mb-0">
+                    <dt class="col-6">Total</dt>
+                    <dd class="col-6 fw-medium text-end mb-0" th:text="'₹' + ${total}">$1198.00</dd>
+                </dl>
+            </div>
+            <div class="d-grid">
+                <a th:href="@{/user/placeorder}" class="btn btn-primary btn-next" fdprocessedid="bfd4w">Place Order</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!-- ***** edit profile ***** -->
+
+
+<!-- ***** Footer Start ***** -->
+<div th:replace="fragments :: user_foot" />
+
+
+<!-- jQuery -->
+<script th:src="@{/js/jquery-2.1.0.min.js}"></script>
+
+<!-- Bootstrap -->
+<script th:src="@{/js/popper.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+<!-- Plugins -->
+<script th:src="@{/js/owl-carousel.js}"></script>
+<script th:src="@{/js/accordions.js}"></script>
+<script th:src="@{/js/datepicker.js}"></script>
+<script th:src="@{/js/scrollreveal.min.js}"></script>
+<script th:src="@{/js/waypoints.min.js}"></script>
+<script th:src="@{/js/jquery.counterup.min.js}"></script>
+<script th:src="@{/js/imgfix.min.js}"></script>
+<script th:src="@{/js/slick.js}"></script>
+<script th:src="@{/js/lightbox.js}"></script>
+<script th:src="@{/js/isotope.js}"></script>
+
+<!-- Global Init -->
+<script th:src="@{/js/custom.js}"></script>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

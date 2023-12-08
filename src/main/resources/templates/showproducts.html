@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: user_head"  />
+
+<body>
+
+<!-- ***** Preloader Start ***** -->
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+
+<!-- ***** Header Area Start ***** -->
+<div th:replace="fragments :: user_nav" />
+<!-- ***** Header Area End ***** -->
+
+<!-- ***** Main Banner Area Start ***** -->
+<!--<div class="page-heading" id="top">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-12">-->
+<!--                <div class="inner-content">-->
+<!--                    <h2>Check Our Products</h2>-->
+<!--                    <span>Awesome &amp; Creative HTML CSS layout by TemplateMo</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!-- ***** Main Banner Area End ***** -->
+
+
+<!-- ***** Products Area Starts ***** -->
+<section class="section" id="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2>Products</h2>
+                    <span>Check out all of our products.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+<div class="row">
+        <div class="col-lg-2">
+            <div class="search-leftContainer column-base" style="-webkit-box-flex: 1; flex: 1 1 0%;">
+                <section>
+                    <div class="condition-render-verticalFilters condition-render-boundary-top">
+                        <div class="vertical-filters-filters header-container">
+                            <span class="header-title">FILTERS</span>
+                        </div>
+
+                        <form th:action="@{/user/byFilters}" method="get">
+                            <div class="vertical-filters-filters brand-container">
+                                <span class="vertical-filters-header">Brand</span>
+                                <ul class="brand-list">
+                                    <li th:each="brand : ${brandNames}">
+                                        <label class="vertical-filters-label common-customCheckbox">
+                                            <input type="checkbox" class="brand-checkbox" name="brands" th:value="${brand}">
+                                            <span class="brand-num" th:text="${brand}"></span>
+                                            <div class="common-checkboxIndicator"></div>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="vertical-filters-filters brand-container">
+                                <span class="vertical-filters-header">Size</span>
+                                <ul class="brand-list">
+                                    <li th:each="size : ${size}">
+                                        <label class="vertical-filters-label common-customCheckbox">
+                                            <input type="checkbox" class="brand-checkbox" name="size" th:value="${size}">
+                                            <span class="brand-num" th:text="${size}"></span>
+                                            <div class="common-checkboxIndicator"></div>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="vertical-filters-filters brand-container">
+                                <span class="vertical-filters-header">Price</span>
+                                <ul class="brand-list">
+                                    <!-- Option: Under 500 -->
+                                    <li>
+                                        <label class="vertical-filters-label common-customCheckbox">
+                                            <input type="checkbox" class="brand-checkbox" name="price" value="500">
+                                            <span class="brand-num" >Under 500</span>
+                                            <div class="common-checkboxIndicator"></div>
+                                        </label>
+                                    </li>
+                                    <!-- Option: Under 1000 -->
+                                    <li>
+                                        <label class="vertical-filters-label common-customCheckbox">
+                                            <input type="checkbox" class="brand-checkbox" name="price" value="1000">
+                                            <span class="brand-num" >Under 1000</span>
+                                            <div class="common-checkboxIndicator"></div>
+                                        </label>
+                                    </li>
+                                    <!-- Option: Above 1000 -->
+                                    <li>
+                                        <label class="vertical-filters-label common-customCheckbox">
+                                            <input type="checkbox" class="brand-checkbox" name="price" value="1001">
+                                            <span class="brand-num" >Above 1000</span>
+                                            <div class="common-checkboxIndicator"></div>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                            <div class="vertical-filters-filters brand-container">
+                                <span class="vertical-filters-header">Gender</span>
+                                <ul class="brand-list">
+                                    <li>
+                                        <label class="vertical-filters-label common-customCheckbox">
+                                            <input type="checkbox" name="genders" value="men">
+                                            <span class="brand-num">Men</span>
+                                            <div class="common-checkboxIndicator"></div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="vertical-filters-label common-customCheckbox">
+                                            <input type="checkbox" name="genders" value="women">
+                                            <span class="brand-num">Women</span>
+                                            <div class="common-checkboxIndicator"></div>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button type="submit">Apply Filters</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-8">
+            <div class="row">
+                <div class="col-lg-4" th:each="product : ${products}">
+                    <div class="item">
+                        <div class="thumb">
+                            <div class="hover-content">
+                                <ul>
+                                    <li><a th:href="@{/user/singleproduct/{productId}(productId=${product.id})}"><i class="fa fa-eye"></i></a></li>
+
+                                    <li><a ><i class="fa fa-heart">
+                                        <form th:action="@{/user/addToWishlist}" method="post">
+                                            <input type="hidden" name="productId" th:value="${product.id}" />
+                                            <button type="submit" ></button>
+                                        </form>
+                                    </i></a></li>
+                                    <li><a ><i class="fa fa-shopping-cart">
+                                        <form th:action="@{/user/addtocart}"  method="post">
+                                            <input type="hidden" name="productId" th:value="${product.id}" />
+                                            <button type="submit" ></button>
+                                        </form>
+                                    </i></a></li>
+                                </ul>
+                            </div>
+                            <img th:src="@{${'/productImages/' + product.images[0].imageName}}">
+                        </div>
+                        <div class="down-content">
+                            <h4 th:text="${product.brand}"></h4>
+                            <h6 th:text="${product.description}"></h6>
+                            <span th:text="${product.price}"></span>
+                            <ul class="stars">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
+<!--            <div class="col-lg-12">-->
+<!--                <div class="pagination">-->
+<!--                    <ul>-->
+<!--                        <li>-->
+<!--                            <a href="#">1</a>-->
+<!--                        </li>-->
+<!--                        <li class="active">-->
+<!--                            <a href="#">2</a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="#">3</a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="#">4</a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="#">></a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+</section>
+<!-- ***** Products Area Ends ***** -->
+<div th:replace="fragments :: user_foot" />
+<!-- ***** Footer Start ***** -->
+
+
+
+<!-- jQuery -->
+<script th:src="@{/js/jquery-2.1.0.min.js}"></script>
+
+<!-- Bootstrap -->
+<script th:src="@{/js/popper.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+<!-- Plugins -->
+<script th:src="@{/js/owl-carousel.js}"></script>
+<script th:src="@{/js/accordions.js}"></script>
+<script th:src="@{/js/datepicker.js}"></script>
+<script th:src="@{/js/scrollreveal.min.js}"></script>
+<script th:src="@{/js/waypoints.min.js}"></script>
+<script th:src="@{/js/jquery.counterup.min.js}"></script>
+<script th:src="@{/js/imgfix.min.js}"></script>
+<script th:src="@{/js/slick.js}"></script>
+<script th:src="@{/js/lightbox.js}"></script>
+<script th:src="@{/js/isotope.js}"></script>
+
+<!-- Global Init -->
+<script th:src="@{/js/custom.js}"></script>
+
+
+
+<script>
+
+    $(function() {
+        var selectedClass = "";
+        $("p").click(function(){
+        selectedClass = $(this).attr("data-rel");
+        $("#portfolio").fadeTo(50, 0.1);
+            $("#portfolio div").not("."+selectedClass).fadeOut();
+        setTimeout(function() {
+          $("."+selectedClass).fadeIn();
+          $("#portfolio").fadeTo(50, 1);
+        }, 500);
+
+        });
+    });
+
+</script>
+</body>
+
+</html>
